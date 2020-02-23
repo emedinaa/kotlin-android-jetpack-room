@@ -16,7 +16,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //https://developer.android.com/guide/topics/graphics/vector-drawable-resources
+        vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,14 +30,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$coreKtxVersion"
 
+    implementation "com.google.android.material:material:1.1.0"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleKtxVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleKtxVersion"
