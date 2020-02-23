@@ -10,11 +10,11 @@ import com.emedinaa.room.model.Avatar
  */
 
 @Entity(tableName = "avatar")
-data class AvatarDb(@PrimaryKey val id:String,
+data class AvatarDb(@PrimaryKey val id:Int,
                       @ColumnInfo(name = "name") val name:String?,
                       @ColumnInfo(name = "image") val photo:String?){
 
     fun toAvatar():Avatar{
-        return Avatar(id,name,photo)
+        return Avatar(id,name,"",photo)
     }
 }
