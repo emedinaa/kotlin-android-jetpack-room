@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/app_navigation"
+  app:startDestination="@id/mainFragment">
+
+  <fragment
+    android:id="@+id/mainFragment"
+    android:name="com.emedinaa.room.sample.ui.MainFragment"
+    android:label="fragment_main"
+    tools:layout="@layout/fragment_main" >
+    <action
+      android:id="@+id/action_mainFragment_to_addRepositoryFragment"
+      app:destination="@id/addRepositoryFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/addRepositoryFragment"
+    android:name="com.emedinaa.room.sample.ui.AddRepositoryFragment"
+    android:label="fragment_add_resource"
+    tools:layout="@layout/fragment_add_resource" />
+</navigation>
