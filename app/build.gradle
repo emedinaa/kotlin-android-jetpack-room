@@ -1,17 +1,20 @@
+//https://developer.android.com/build/migrate-to-ksp
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+    //id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp'
 }
 
 android {
-    compileSdk 30
+    namespace 'com.emedinaa.room.sample'
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.emedinaa.room.sample"
         minSdk 21
-        targetSdk 30
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
@@ -37,32 +40,54 @@ android {
     }
 }
 
+//https://developer.android.com/build/migrate-to-catalogs
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    //implementation 'androidx.core:core-ktx:1.3.2'
+    implementation libs.androidx.ktx
+    //implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation libs.androidx.appcompat
+    //implementation 'com.google.android.material:material:1.3.0'
+    implementation libs.google.material
+    //implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation libs.androidx.constraintlayout
+    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation libs.androidx.legacy.support
+    //implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
+    implementation libs.androidx.navigation.fragment.ktx
+    //implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    implementation libs.androidx.navigation.ui.ktx
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //testImplementation 'junit:junit:4.+'
+    testImplementation libs.junit
+    //androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation libs.androidx.ext.junit
+    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation libs.androidx.espresso
 
     //TODO ROOM
+    //https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies
     //https://developer.android.com/jetpack/androidx/releases/room#version_240_2
-    implementation "androidx.room:room-runtime:2.2.4" //'androidx.room:room-runtime:2.4.0-beta01'
-    implementation "androidx.room:room-ktx:2.2.4" //"androidx.room:room-ktx:2.4.0-beta01"
-    kapt "androidx.room:room-compiler:2.2.4" //"androidx.room:room-compiler:2.4.0-beta01"
+    //implementation "androidx.room:room-runtime:2.5.2"
+    implementation libs.androidx.room.runtime
+    //implementation "androidx.room:room-ktx:2.5.2"
+    implementation libs.androidx.room.ktx
+    //kapt "androidx.room:room-compiler:2.5.2"
+    //ksp "androidx.room:room-compiler:2.5.2"
+    ksp libs.androidx.room.compiler
 
     //TODO coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+    //https://github.com/Kotlin/kotlinx.coroutines/releases
+    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'//1.4.3'
+    implementation libs.kotlinx.coroutines.core
+    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'//1.4.3'
+    implementation libs.kotlinx.coroutines.android
 
     //TODO lifecycle
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    //implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation libs.androidx.lifecycle.runtime.ktx
+    //implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation libs.androidx.lifecycle.extensions
+    //implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation libs.androidx.lifecycle.livedata.ktx
 }
